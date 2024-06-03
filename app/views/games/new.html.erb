@@ -1,0 +1,13 @@
+<h1>nEW GAME</h1>
+<div class="d-flex flex-row mb-3"><% @letters.each do |letter| %>
+    <div class= " justify-content-center border border-2"><%= letter.to_s.capitalize %></div>
+  <% end %>
+</div>
+<h3>quel est le word le plus long?</h3>
+<form action="/score" method="post" data-turbo="false">
+  <input type="text" name="word" >
+  <input type="submit" value="Play">
+ <%= hidden_field_tag :reelletters, @letters %>
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+</form>
+<h3>Ton score : <%= @result %></h3>
